@@ -1,0 +1,15 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "Simple node server to serve files for testing and experimenting",
+  "scripts": {
+    "server": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "CJV",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "3.1.10"
+  },
+  "dependencies": {}
+}
