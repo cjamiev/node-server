@@ -1,4 +1,3 @@
 /node_modules
 /storage
-/src/static/bundle.js
-/src/static/bundle.css
+/src/static/*

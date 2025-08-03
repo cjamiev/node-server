@@ -1,4 +1,5 @@
 const http = require('http');
+const httpProxy = require('http-proxy');
 const url = require('url');
 const { router } = require('./router');
 
@@ -10,6 +11,8 @@ const STANDARD_HEADER = { 'Content-Type': 'application/json' };
 const STATUS_OK = 200;
 const STATUS_ERROR = 500;
 const METHOD_POST = 'POST';
+
+const proxy = httpProxy.createProxyServer({});
 
 const cors = (res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -53,7 +56,7 @@ const send = (response, { data = {}, message = '', error = false }, { status, he
 const handleRequest = async (request, response) => {
   const queryParameters = url.parse(request.url, true).query;
   const payload = request.method === METHOD_POST ? await resolvePostBody(request) : {};
-
+  
   const {
     data,
     message,
@@ -69,7 +72,12 @@ const handleRequest = async (request, response) => {
 http
   .createServer((request, response) => {
     cors(response);
-    handleRequest(request, response);
+    if(request.url.startsWith('/storage')) {
+      proxy.web(request, response, { target: 'http://localhost:8080'})
+    }
+    else {
+      handleRequest(request, response);
+    }
   })
   .listen(parseInt(port));
 
