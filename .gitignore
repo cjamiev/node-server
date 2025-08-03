@@ -1,3 +1,6 @@
 /node_modules
 /storage
 /src/static/*
+*.env.productionspace
+*.env.testspace
+*.env.workspace

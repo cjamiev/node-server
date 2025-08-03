@@ -68,7 +68,7 @@ const runRegexOperation = (root, content) => {
   }
 };
 
-const SNIPPET_DIR = './storage/io/snippets';
+const SNIPPET_DIR = `${process.env.DATA_STORAGE_PATH}\\snippets`;
 const runSnippetOperation = (op, filename, content) => {
   if (op === 'read') {
     const data = filename ? loadFile(`${SNIPPET_DIR}/${filename}`) : readDirectory(SNIPPET_DIR);

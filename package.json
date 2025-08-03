@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "Simple node server to serve files for testing and experimenting",
   "scripts": {
-    "server": "nodemon src/index.js"
+    "dev": "node --watch --env-file .env.workspace src/index.js",
+    "prod": "node --env-file .env.productionspace src/index.js"
   },
   "keywords": [],
   "author": "CJV",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "3.1.10"
-  },
   "dependencies": {
     "http-proxy": "^1.18.1"
   }

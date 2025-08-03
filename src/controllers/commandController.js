@@ -2,7 +2,7 @@ const child_process = require('child_process');
 const exec = child_process.exec;
 const { readDirectory } = require('../utils/io');
 
-const COMMAND_DIRECTORY = './storage/io/command';
+const COMMAND_DIRECTORY = `${process.env.DATA_STORAGE_PATH}\\command`;
 const UTF8 = 'utf-8';
 
 // windows cmd /c vs /k  auto close vs left open

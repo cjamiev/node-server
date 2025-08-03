@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = './src/static/';
-const UTF8 = 'utf-8';
 const TYPE_OCTET = 'application/octet-stream';
 const mimeTypes = {
   '.ico': 'image/x-icon',

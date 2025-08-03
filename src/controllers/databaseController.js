@@ -1,6 +1,6 @@
 const { writeToFile, loadFile, readDirectory } = require('../utils/io');
 
-const DB_DIRECTORY = './storage/io/db';
+const DB_DIRECTORY = `${process.env.DATA_STORAGE_PATH}\\db`;
 
 const databaseController = (name, { content, filename }) => {
   if (content && filename) {

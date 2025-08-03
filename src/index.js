@@ -3,9 +3,7 @@ const httpProxy = require('http-proxy');
 const url = require('url');
 const { router } = require('./router');
 
-const DEFAULT_PORT = 2000;
-const SECOND_ARGUMENT = 2;
-const port = process.argv[SECOND_ARGUMENT] || DEFAULT_PORT;
+const port = process.env.APP_PORT
 const UTF8 = 'utf-8';
 const STANDARD_HEADER = { 'Content-Type': 'application/json' };
 const STATUS_OK = 200;
@@ -73,7 +71,7 @@ http
   .createServer((request, response) => {
     cors(response);
     if(request.url.startsWith('/storage')) {
-      proxy.web(request, response, { target: 'http://localhost:8080'})
+      proxy.web(request, response, { target: process.env.STORAGE_APP_PORT})
     }
     else {
       handleRequest(request, response);
