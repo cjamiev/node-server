@@ -1,5 +1,5 @@
 /node_modules
-/storage
+/tmp
 /src/static/*
 *.env.productionspace
 *.env.testspace
